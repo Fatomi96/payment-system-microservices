@@ -3,7 +3,7 @@ import 'dotenv/config';
 
 export default class Publisher {
    /**
- * Publish Billing Details to Billing worker
+ * Publish Billing Details to Billing worker sservice
  * @param {Object} billingDetails - Details of incoming transaction
  */
    static async publisher(billingDetails) {

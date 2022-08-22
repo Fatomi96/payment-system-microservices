@@ -3,16 +3,17 @@ import createBilling from '../db/queries'
 
 export default class BillingService {
    /**
-    * Fetches an account
+    * add an incoming transaction 
     * @memberof AccountService
-    * @param {string} accountNumber  - The account number of the customer
-    * @returns { Promise<Object | Error> } A promise that resolves or rejects
-    * with an Object of the account resource or an Error.
+    * @param customerId  - The id of the customer
+    * @param amount  - The transaction amount
+    * @param type  - The type of transaction
+    * @returns with an Object of the transaction resource .
     */
    static addTransaction(customerId, amount, type) {
       return db.one(createBilling.createBilling, [
-         customerId, 
-         amount, 
+         customerId,
+         amount,
          type
       ]);
    }

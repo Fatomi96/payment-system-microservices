@@ -6,7 +6,7 @@ const { billingWorker } = BillingWorkerController;
 
 export default class Consumer {
    /**
-    * Listen to transactions publish on Billing Queue and Save to Database
+    * Listen to transactions published on Transaction Queue and Save to Database
     */
    static async consumer() {
       try {
@@ -26,7 +26,7 @@ export default class Consumer {
             console.log(" [x] Received %s", data);
             setTimeout(() => {
                billingWorker(JSON.parse(data));
-            }, 5000);
+            }, 100);
          }, {
             noAck: true
          });
