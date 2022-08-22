@@ -12,11 +12,11 @@ export default class Service {
     * with an Object of the account resource or an Error.
     */
    static async getAccount(accountNumber) {
-      return db.oneOrNone(findAccount.findAccount, accountNumber);
+      return db.oneOrNone(findAccount, accountNumber);
    }
 
    static async fetchAccountDetails(id) {
-      return db.one(fetchAccount.fetchAccount, id)
+      return db.one(fetchAccount, id)
    }
 };
  

@@ -1,6 +1,6 @@
 import express from 'express';
 import 'dotenv/config';
-import Consumer from "../billing-worker-service/consumer/index.js";
+import Consumer from "./consumer/index.js";
 
 const { consumer } = Consumer;
 

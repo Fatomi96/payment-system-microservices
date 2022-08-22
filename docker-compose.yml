@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  customer-service:
+    container_name: customer-service
+    build: ./customer-service
+    command: npm start
+    ports:
+      - "1000:1000"
+    networks:
+      testingnt:
+        ipv4_address: 172.29.1.1
+
+  billing-service:
+    container_name: billing-service
+    build: ./billing-service
+    command: npm start
+    ports:
+      - "2000:2000"
+    networks:
+      testingnt:
+        ipv4_address: 172.29.1.2
+
+  billing-worker-service:
+    container_name: billing-worker-service
+    build: ./billing-worker-service
+    command: npm start
+    ports:
+      - "3000:3000"
+    networks:
+      testingnt:
+        ipv4_address: 172.29.1.3
+
+networks:
+  testingnt:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.29.0.0/16

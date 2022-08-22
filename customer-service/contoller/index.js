@@ -17,7 +17,7 @@ export default class Controller {
       const { accountNumber, type, amount}= req.body;
       const { customerId } = await getAccount(accountNumber);
       const billingDetails = { customerId, amount, type };
-         axios.post(process.env.BILLING_URL, billingDetails)
+         axios.post(process.env.BILLING_SERVICE_URL, billingDetails)
             .then((response) => {
                res.status(response.status).json(response.data)
             })
